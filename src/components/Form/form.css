@@ -1,0 +1,48 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: auto;
+  gap: 15px;
+  text-align: center;
+}
+label {
+  color: #000000; 
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+}
+
+input, select {
+  padding: 8px;
+  color: #000;
+  border: none;
+  border-bottom: 2px solid #000000;
+  background-color: rgb(252, 245, 233);
+  text-align: center;
+}
+
+button {
+  background-color: rgb(248, 248, 248);
+  border: #000000 solid 1px;
+  border-radius: 20px;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(224, 224, 240);
+}
+
+select {
+  color: #000000; 
+  font-size: 16px; 
+}
+
+
+select:hover {
+  color: #000000; 
+}
+
