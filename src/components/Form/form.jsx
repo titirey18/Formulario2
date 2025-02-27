@@ -1,14 +1,15 @@
 import { useState } from "react";
 import React from "react";
 import "./form.css";
+import "animate.css"; // Asegúrate de tener animate.css instalada o importada en tu proyecto.
 
 const preguntas = [
-  "¿What is your name?",
-  "¿What is your last name?",
-  "¿How old are you?",
-  "¿Where do you live?",
-  "Enter your email address",
-  "Enter your phone number",
+  "¿What is your name?*",
+  "¿What is your last name?*",
+  "¿How old are you?*",
+  "¿Where do you live?*",
+  "Enter your email address*",
+  "Enter your phone number*",
 ];
 
 const placeholders = {
@@ -30,6 +31,7 @@ const Form = () => {
     email: "",
     phone: "",
   });
+
   const [errores, setErrores] = useState({
     name: "",
     lastName: "",
@@ -39,7 +41,7 @@ const Form = () => {
     phone: "",
   });
 
-  const [animacion, setAnimacion] = useState(false);
+  const [animacion, setAnimacion] = useState("animate__fadeInUpBig");
 
   const handleChange = (e) => {
     setRespuestas({
@@ -52,29 +54,29 @@ const Form = () => {
     const currentKey = Object.keys(respuestas)[paso];
     let newErrores = { ...errores };
 
-  
     if (respuestas[currentKey].trim() === "") {
       newErrores[currentKey] = "Este campo es obligatorio";
     } else {
       newErrores[currentKey] = "";
     }
 
-    
     if (currentKey === "email" && !respuestas[currentKey].includes("@")) {
       newErrores.email = "Por favor, introduce una dirección de correo electrónico válida";
     }
 
-    
     if (currentKey === "phone" && !/^\d{10}$/.test(respuestas[currentKey])) {
       newErrores.phone = "El número de teléfono debe tener exactamente 10 dígitos";
     }
 
     setErrores(newErrores);
 
-    
     if (Object.values(newErrores).every((error) => error === "")) {
-      setAnimacion(true); 
-      setPaso(paso + 1); 
+      setAnimacion("animate__fadeOutUpBig"); 
+
+      setPaso(paso + 1);
+      setTimeout(() => {
+        setAnimacion("animate__fadeInUpBig"); 
+      }, 200); 
     }
   };
 
@@ -84,7 +86,7 @@ const Form = () => {
   };
 
   return (
-    <div key={paso} className="animate__animated animate__fadeInDown">
+    <div className={`animate__animated ${animacion}`} key={paso}>
       <form onSubmit={handleSubmit}>
         {paso < preguntas.length ? (
           <>
@@ -120,7 +122,7 @@ const Form = () => {
             )}
 
             <button type="button" onClick={handleNext}>
-              Siguiente
+              Ok
             </button>
           </>
         ) : (
