@@ -1,48 +1,59 @@
-form {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  margin: auto;
-  gap: 15px;
-  text-align: center;
+label{
+  color: black;
+  animation: fadeInDownBig;
+  animation-duration: 2s;
 }
-label {
-  color: #000000; 
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  display: block;
+.form-container {
+  padding: 20px;
+  width: 100%;
+  color: black;
+  max-width: 400px;
+  box-sizing: border-box;
+  margin: 0 auto;
 }
 
-input, select {
-  padding: 8px;
-  color: #000;
-  border: none;
-  border-bottom: 2px solid #000000;
-  background-color: rgb(252, 245, 233);
-  text-align: center;
+.form-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+
+.animate__animated {
+  animation-duration: 2s;
+}
+
+
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
 button {
-  background-color: rgb(248, 248, 248);
-  border: #000000 solid 1px;
-  border-radius: 20px;
-  color: rgb(0, 0, 0);
+  width: 100%;
   padding: 10px;
+  background-color: #b8b5ab;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: rgb(224, 224, 240);
-}
-
-select {
-  color: #000000; 
-  font-size: 16px; 
+  background-color: #45a049;
 }
 
 
-select:hover {
-  color: #000000; 
+span {
+  font-size: 13px;
+  color: red;
 }
-
