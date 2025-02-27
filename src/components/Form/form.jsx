@@ -74,11 +74,7 @@ const Form = () => {
     
     if (Object.values(newErrores).every((error) => error === "")) {
       setAnimacion(true); 
-      setTimeout(() => {
-        setPaso(paso + 1); 
-        setAnimacion(false); 
-    
-      }, 1000); 
+      setPaso(paso + 1); 
     }
   };
 
@@ -88,53 +84,50 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {paso < preguntas.length ? (
-        <>
-          <label>{preguntas[paso]}</label>
+    <div key={paso} className="animate__animated animate__fadeInDown">
+      <form onSubmit={handleSubmit}>
+        {paso < preguntas.length ? (
+          <>
+            <label>{preguntas[paso]}</label>
 
-         
-          <div
-  key={paso} 
-  className="animate__animated animate__backInUp"
->
-  {paso === 2 ? (
-    <select
-      name="age"
-      value={respuestas.age}
-      onChange={handleChange}
-      required
-    >
-      <option value="">{placeholders.age}</option>
-      <option value="Menos de 18 años">Menos de 18 años</option>
-      <option value="Entre 18 y 30 años">Entre 18 y 30 años</option>
-      <option value="Más de 30 años">Más de 30 años</option>
-    </select>
-  ) : (
-    <input
-      key={paso} 
-      type={paso === 4 ? "email" : "text"}
-      name={Object.keys(respuestas)[paso]}
-      value={respuestas[Object.keys(respuestas)[paso]]}
-      onChange={handleChange}
-      required
-      placeholder={placeholders[Object.keys(respuestas)[paso]]}
-    />
-  )}
-</div>
+            <div>
+              {paso === 2 ? (
+                <select
+                  name="age"
+                  value={respuestas.age}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">{placeholders.age}</option>
+                  <option value="Menos de 18 años">Menos de 18 años</option>
+                  <option value="Entre 18 y 30 años">Entre 18 y 30 años</option>
+                  <option value="Más de 30 años">Más de 30 años</option>
+                </select>
+              ) : (
+                <input
+                  type={paso === 4 ? "email" : "text"}
+                  name={Object.keys(respuestas)[paso]}
+                  value={respuestas[Object.keys(respuestas)[paso]]}
+                  onChange={handleChange}
+                  required
+                  placeholder={placeholders[Object.keys(respuestas)[paso]]}
+                />
+              )}
+            </div>
 
-         
-          {errores[Object.keys(respuestas)[paso]] && (
-            <span>{errores[Object.keys(respuestas)[paso]]}</span>
-          )}
-          <button type="button" onClick={handleNext}>
-            Siguiente
-          </button>
-        </>
-      ) : (
-        <button type="submit">Enviar</button>
-      )}
-    </form>
+            {errores[Object.keys(respuestas)[paso]] && (
+              <span>{errores[Object.keys(respuestas)[paso]]}</span>
+            )}
+
+            <button type="button" onClick={handleNext}>
+              Siguiente
+            </button>
+          </>
+        ) : (
+          <button type="submit">Enviar</button>
+        )}
+      </form>
+    </div>
   );
 };
 
