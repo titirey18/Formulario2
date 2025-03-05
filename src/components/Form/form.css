@@ -1,12 +1,23 @@
-label{
+label {
+  position: relative;
+  right: 390px;
+  bottom: 10px;
   color: black;
+  font-size: 20px;
 }
 
+.block {
+  width: 80%;
+}
 
 .animate__animated {
   animation-duration: 2s;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+}
 
 input,
 select {
@@ -17,16 +28,19 @@ select {
   border: none;
   background-color: rgb(252, 244, 232);
   border-bottom: solid 2px black;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 button {
-  padding: 10px;
+  padding: 5px 10px;
   background-color: #b8b5ab;
   color: rgb(0, 0, 0);
   border: none;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 18px;
+  width: auto;
+  display: block;
+  margin: 10px auto;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -35,8 +49,75 @@ button:hover {
   background-color: #45a049;
 }
 
+.button-next {
+  position: relative;
+  top: 310px;
+  left: 45rem;
+  font-size: 23px;
+}
 
 span {
   font-size: 13px;
   color: red;
+}
+
+
+@media (max-width: 1024px) {
+  .button-next {
+    left: 35rem;
+    top: 270px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  label {
+    right: 0;
+    bottom: 5px;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .block {
+    width: 90%;
+  }
+
+  input,
+  select {
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 5px 8px;
+  }
+
+  .button-next {
+    left: 0;
+    right: 0;
+    top: auto;
+    font-size: 18px;
+    position: relative;
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 480px) {
+  label {
+    font-size: 16px;
+    position: static;
+    text-align: center;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  .button-next {
+    font-size: 16px;
+    margin-top: 10px;
+  }
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from "react";
 import "./form.css";
-import "animate.css"; // Asegúrate de tener animate.css instalada o importada en tu proyecto.
+import "animate.css"; 
 
 const preguntas = [
   "¿What is your name?*",
@@ -86,8 +86,8 @@ const Form = () => {
   };
 
   return (
-    <div className={`animate__animated ${animacion}`} key={paso}>
-      <form onSubmit={handleSubmit}>
+    <div className="block">
+      <form className={`animate__animated ${animacion}`} key={paso} onSubmit={handleSubmit}>
         {paso < preguntas.length ? (
           <>
             <label>{preguntas[paso]}</label>
@@ -129,6 +129,14 @@ const Form = () => {
           <button type="submit">Enviar</button>
         )}
       </form>
+    <div className="button-next">
+      {paso > 0 && (
+        <button onClick={() => setPaso(paso - 1)}>🔼</button>
+      )}
+      {paso < preguntas.length - 1 && (
+        <button onClick={handleNext}>🔽</button>
+      )}
+    </div>
     </div>
   );
 };
