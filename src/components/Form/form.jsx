@@ -86,10 +86,10 @@ const Form = () => {
     e.preventDefault();
 
     emailjs.sendForm(
-      'service_8r5wtsd',
-      'template_hqmvqrm',
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
       formRef.current,
-      'HGbeT8DEdawlH0ih_'
+      import.meta.env.VITE_EMAILJS_API_KEY
     ).then(
       (result) => {
         console.log('Formulario enviado:', result.text);
